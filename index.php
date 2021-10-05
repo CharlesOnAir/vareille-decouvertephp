@@ -1,3 +1,3 @@
 <?php
 $prenom = 'Charles';
-echo 'Bonjour' . $prenom;
+echo 'Bonjour ' . $prenom;
