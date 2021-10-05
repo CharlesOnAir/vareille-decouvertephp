@@ -1,17 +1,27 @@
 <?php
 // @formatter:on
-// Création d'une fonction pour découper un mot en un seul caractère
 if (empty($argv[1])) {
     echo "Vous devez renseigner un premier paramètre pour continuer";
     exit;
 }
-
+// Création d'une fonction pour découper un mot en un seul caractère
 function cutWorld($mot)
 {
     return str_split($mot);
 }
 
-// Pour Nicolas
-//var_dump(array_count_values(cutWorld($argv[1])));
+// J'utilise ma fonction pour le découper
+$tbl = cutWorld($argv[1]);
+// Je déclare un tableau
+$motEclate = array();
 
-echo json_encode(array_count_values(cutWorld($argv[1])));
+// Je boucle sur mon tableau
+foreach (array_count_values($tbl) as $key => $mot) {
+    $motEclate[$key] = $mot;
+}
+// Je met dans l'ordre mon tableau
+ksort($motEclate);
+// Je boucle sur mon nouveau tableau
+foreach ($motEclate as $key => $mot) {
+    echo $key . ' => ' . $mot . PHP_EOL;
+}
